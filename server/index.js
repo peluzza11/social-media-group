@@ -37,12 +37,15 @@ app.post("/auth/register", upload.single("picture"), register);
 /*routes*/
 app.use("/auth", authRoutes);
 
+
+
+
 /*TROUBLE HERE*/
 
 /*MONGOOSE SETUP*/
 const PORT = process.env.PORT || 6001; /*back up if original port doesnt work*/
 mongoose
-.connect("mongodb://localhost:27017")
+.connect("mongodb://localhost:27017/socialmedia")
 .then(() => {
     app.listen(PORT, () => Console.log(`Server Port: ${PORT}`));
 })
