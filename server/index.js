@@ -3,9 +3,10 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import multer from "multer"; /*used for uploading files*/
 import path from "path";
 import { fileURLToPath } from "url";
-import multer from "multer"; /*used for uploading files*/
+import authRoutes from "./routes/auth.js";
 import { register } from "./controllers/auth.js"
 
 /*configurations*/
@@ -32,6 +33,9 @@ const upload = multer({ storage });
 
 /*ROUTES WITH FILES*/
 app.post("/auth/register", upload.single("picture"), register);
+
+/*routes*/
+app.use("/auth", authRoutes);
 
 /*TROUBLE HERE*/
 
