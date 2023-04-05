@@ -42,5 +42,5 @@ const UserSchema = new mongoose.Schema(
         {timestamps: true } /*will give us automatic dates when its created/ updated*/
         );
 
-        const User = mongooose.model("User", UserSchema)
+        const User = mongoose.model("User", UserSchema);
         export default User;
