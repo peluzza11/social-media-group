@@ -116,3 +116,12 @@ function updateTotalComments()
 }
 
 
+//Allows users to update their Bio
+function updateBio() 
+{var newBio = document.getElementById("bio-input").value; 
+     if (newBio) 
+     { 
+         document.getElementById("bio").innerHTML = "Bio: " + newBio; 
+          document.getElementById("bio-input").value = ""; 
+    } 
+}
