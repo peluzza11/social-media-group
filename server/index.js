@@ -53,5 +53,27 @@ mongoose
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
 })
 .catch((error) => console.log(`${error} did not connect`));
+const form = document.querySelector('form');
+const nameInput = form.querySelector('input[name="name"]');
+const emailInput = form.querySelector('input[name="email"]');
+const passwordInput = form.querySelector('input[name="password"]');
+
+form.addEventListener('submit', event => {
+  event.preventDefault(); // prevent the form from submitting
+
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const password = passwordInput.value.trim();
+
+  // perform validation and submit the form data
+  if (name && email && password) {
+    // submit the form data
+    console.log('Submitting form:', { name, email, password });
+  } else {
+    // display an error message
+    console.error('Please fill in all fields.');
+  }
+});
+
 
 
