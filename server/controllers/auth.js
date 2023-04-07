@@ -17,8 +17,8 @@ export const register = async (req, res) => {  /*it has to be async because we a
             occupation
     } = req.body;
 
-    const salt = await bcrypt.genSalt();
-    const passwordHash = await bcrypt.hash(password, salt);
+    const salt = await bcrypt.genSalt();/* create a salt provided by bcrypt, encryption, and use the salt to encrypt our password*/   /*https://www.tabnine.com/code/javascript/functions/bcrypt/hash*/
+    const passwordHash = await bcrypt.hash(password, salt); /* to encrypt our password so that the password is not exposed we can create a salt, pass it in and has it together*/
 
     const newUser = new User({
         firstName,
@@ -30,10 +30,9 @@ export const register = async (req, res) => {  /*it has to be async because we a
         location,
         occupation,
         viewedProfile: Math.floor(Math.random() * 10000), /*will generate a random number of people viewing their profile*/
-        impressions: Math.floor(Math.random() * 10000), /*will generate a random number*/
     });
     const savedUser = await newUser.save();
-    res.status(201).json(savedUser);
+    res.status(201).json(savedUser); /* status code 201 means something has created*/       /*https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/201*/
     }catch (err) {
         res.status(500).json({ error: err.message}); /*this sends the front end a status code of 500 with an error message of whatever the mongoDB has returned*/
     }
@@ -46,7 +45,7 @@ export const login = async (req, res) => {
         const { email, password } = req.body;
         const user = await User.findOne({ email: email}); /* use mongoose here to try to find the one that has specified email and the user information*/
         if (!user) return res.status(400).json({ msg: "User does not exist."});
-                                                                                /*this is hopw we validate wether the user is writing the correct user and password*/
+                                                                                /*this is how we validate wether the user is writing the correct user and password*/
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) return res.status(400).json({ msg: "Invalid credentials."});
 

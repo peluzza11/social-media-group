@@ -1,11 +1,11 @@
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
-import cors from "cors";
+import cors from "cors"; /*a front-end client can make requests for resources to an external back-end server*/
 import dotenv from "dotenv";
 import multer from "multer"; /*used for uploading files*/
-import helmet from "helmet";
-import morgan from "morgan";
+import helmet from "helmet";/*secures your express apps by setting various HTTP headers*/
+import morgan from "morgan";/*http request logger middleware for node.js*/
 import path from "path";
 import { fileURLToPath } from "url";
 import authRoutes from "./routes/auth.js";
@@ -23,9 +23,9 @@ app.use(morgan("common"));
 app.use(bodyParser.json({limit: "30mb", extended: true}));
 app.use(bodyParser.urlencoded({limit: "30mb", extended: true}));
 app.use(cors()); 
-app.use("/assets", express.static(path.join(__dirname, 'public/assets'))); /*set the directory of where we keepp the assets*/
+app.use("/assets", express.static(path.join(__dirname, 'public/assets'))); /*set the directory of where we keep the assets*/
 
-/*file storage, saves files if someone uploads a file in the website then it will say destination and it will saved in public/assets  */
+/*file storage, saves files if someone uploads a file in the website then it will say destination and it will saved in public/assets,  */
 const storage = multer.diskStorage({
     destinations: function (req, file, cb){
         cb(null, "public/assets");
@@ -41,11 +41,6 @@ app.post("/auth/register", upload.single("picture"), register); /*this will uplo
 
 /*routes*/
 app.use("/auth", authRoutes);
-
-
-
-
-/*TROUBLE HERE*/
 
 /*MONGOOSE SETUP*/
 const PORT = process.env.PORT || 6001; /*back up if original port doesnt work*/

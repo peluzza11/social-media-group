@@ -37,10 +37,11 @@ const UserSchema = new mongoose.Schema(
        location: String,
        occupation: String,
        viewedProfile: Number,
-       impressions: Number,
         },
-        {timestamps: true } /*will give us automatic dates when its created/ updated*/
+        {timestamps: true } /*will give us automatic dates when its created/ updated*/  /*https://mongoosejs.com/docs/timestamps.html*/
         );
 
         const User = mongoose.model("User", UserSchema);
         export default User;
+
+        /*when creating a mongoose model, we would create a mongoose schema first, then pass it into mongoose.model then pass it into user*/
