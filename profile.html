@@ -1,0 +1,38 @@
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="Connecto">
+            <img src="Connecto.jpg" alt="Connecto logo">
+            <span class="connecto">Connecto</span>
+        </div>
+        <ul class="nav-tabs">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="#">Login/Logout</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="profile-info">
+            <h1>Username</h1>
+            <div class="bio-box">
+                <p id="bio">Bio: This is a short bio about myself.</p>
+                
+            </div>
+            <!-- add a maxlength attribute to the input element with the value of 400
+            mention this to users-->
+            <div class="input-update">
+                <input type="text" id="bio-input" placeholder="Enter a new bio" maxlength="400">
+                <button id="bio-button" onclick="updateBio()">Update</button>
+            </div>
+        </div>
+        <div class="comment-section">
+            <!-- comments will be added here -->
+        </div>
+    </div>
+</body>
+</html>
