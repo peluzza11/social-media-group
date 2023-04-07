@@ -1,0 +1,35 @@
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="Connecto">
+            <img src="Connecto.jpg" alt="Connecto logo">
+            <span class="connecto">Connecto</span>
+        </div>
+        <ul class="nav-tabs">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="#">Login/Logout</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="user-info">
+            <h1>Username</h1>
+            <p>Total Comments: <span id="total-comments">0</span></p>
+        </div>
+        <div class="post-button">
+            <input type="text" id="post-input" placeholder="Write your post here">
+            <input type="file" id="post-file" accept="image/*" onchange="previewImage()">
+            <img src="" alt="" id="post-image" style="display: none;">
+            <button onclick="createPost()">Post</button>
+        </div>
+        <div class="comment-section" id="comment-section">
+        
+        </div>
+    </div>
+</body>
+</html>
