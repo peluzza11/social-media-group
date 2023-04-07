@@ -1,0 +1,150 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav-bar 
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: darkblue;
+    color: white;
+    height: 60px;
+}
+
+.Connecto 
+{
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.Connecto img 
+{
+    width: 40px;
+    height: 40px;
+}
+
+.connecto 
+{
+    font-family: "Didot Italic", serif;
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+.nav-tabs 
+{
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-tabs li 
+{
+    margin-right: 20px;
+}
+
+.nav-tabs a 
+{
+    color: white;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+
+    transition: border-color 0.5s, transform 0.5s;
+}
+
+.nav-tabs a:hover 
+{
+    border-color: white;
+
+}
+
+.nav-tabs a:hover 
+{
+    
+    color: rgb(207, 178, 13);
+        transform: scaleX(1);
+        transform-origin: left;
+}
+
+
+.main-content {
+    margin: 20px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.user-info h1 {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.post {
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+    position: relative;
+}
+
+.post-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    bottom: 100;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.post-button button {
+    width: 150px;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+    background-color: blue;
+    color: white;
+}
+
+
+
+.delete-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: red;
+    color: black;
+}
+
+
+
+/* profile html section*/
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bio-box {
+    border: 2px solid black;
+    padding: 10px;
+    max-width: 500px;
+    
+    word-wrap: break-word;
+}
+
+
+.input-update {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 500px;
+}
+
