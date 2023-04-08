@@ -9,7 +9,11 @@ import morgan from "morgan";/*http request logger middleware for node.js*/
 import path from "path";
 import { fileURLToPath } from "url";
 import authRoutes from "./routes/auth.js";
-import { register } from "./controllers/auth.js"
+import userRoutes from "./routes/user.js";
+import postRoutes from "./routes/posts.js";
+import { register } from "./controllers/auth.js";
+import { create } from "./controllers/posts.js";
+import { verifyToken } from "./middleware/auth.js";
 
 /*configurations*/
 const __filename = fileURLToPath(import.meta.url); /*grab the file URL and use the modules*/
@@ -37,10 +41,13 @@ const storage = multer.diskStorage({
 const upload = multer({ storage }); /*anytime we need to upload a file we will be using the upload variable*/
 
 /*ROUTES WITH FILES*/
-app.post("/auth/register", upload.single("picture"), register); /*this will upload a picture locally into the public/assets folder and its called a middleware because its in between and occurs before the actual logic "register" of saving our user innto the database*/
+app.post("/auth/register", upload.single("picture"), register);
+app.post("/posts", verifyToken, upload.single("picture"), createPost); /*this will upload a picture locally into the public/assets folder and its called a middleware because its in between and occurs before the actual logic "register" of saving our user innto the database*/
 
 /*routes*/
 app.use("/auth", authRoutes);
+app.use("/users", userRoutes);
+app.use("/posts", postRoutes);
 
 /*MONGOOSE SETUP*/
 const PORT = process.env.PORT || 6001; /*back up if original port doesnt work*/
