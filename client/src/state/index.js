@@ -26,7 +26,7 @@ const initialState = {
             if (state.user) {
                 state.user.friends = action.payload.friends;
             } else{
-                console.error("useer friends non-existent :(")
+                console.error("user friends non-existent :(")
             }
         },
         setPosts: (state, action) => {
